@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiFind</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>DigiFind</h1>
+            <p class="subtitle">Handwritten Digit Recognition</p>
+        </header>
+
+        <main class="dashboard">
+            <!-- Left Column: Drawing Canvas -->
+            <section class="canvas-section">
+                <div class="card">
+                    <h2 class="card-title">Draw a Digit</h2>
+                    <p class="card-description">Draw a single digit (0-9) on the canvas below</p>
+                    
+                    <div class="canvas-container">
+                        <canvas id="drawingCanvas" width="280" height="280"></canvas>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="predictBtn" class="btn btn-primary">
+                            <span class="btn-text">Predict</span>
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary">
+                            <span class="btn-text">Clear</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Prediction Result -->
+            <section class="prediction-section">
+                <div class="card">
+                    <h2 class="card-title">Prediction Result:</h2>
+                   
+                    
+                    <div class="result-container">
+                        <div class="prediction-display">
+                            <span id="predictionValue" class="prediction-value">-</span>
+                        </div>
+                        
+                        <div class="confidence-display">
+                            <p class="confidence-label">Confidence Score</p>
+                            <p id="confidenceValue" class="confidence-value">0%</p>
+                        </div>
+                    </div>
+                    
+                    <div id="loadingIndicator" class="loading-indicator hidden">
+                        <div class="spinner"></div>
+                        <p>Analyzing...</p>
+                    </div>
+                    
+                    <div id="errorMessage" class="error-message hidden"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+           
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
